@@ -13,5 +13,11 @@
 !/log/.keep
 !/tmp/.keep
 
+# Ignore images
+*.png
+*.jpeg
+*.jpg
+*.gif
+
 # Ignore Byebug command history file.
 .byebug_history
