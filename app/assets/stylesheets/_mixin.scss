@@ -1,0 +1,15 @@
+@mixin clearfix() {
+
+  &:after {
+    clear: both;
+    content: '';
+    display: block;
+  }
+
+}
+
+@mixin border(){
+
+  border: 1px solid $border-color
+
+}
