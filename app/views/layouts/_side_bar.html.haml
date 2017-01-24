@@ -1,11 +1,12 @@
 .chat-side
   .chat-side__user
-    .chat-side__user-name
-      %p Hayato
-    .chat-side__edit-user
-      %p edit
-    .chat-side__new-group
-      %p new
+    .chat-side__user-content
+      .chat-side__user-name
+        Hayato
+      .chat-side__user-new-group
+        %i{ class: 'fa fa-pencil-square-o' }
+      .chat-side__user-edit-user
+        %i{ class: 'fa fa-cog' }
   .chat-side__groups
     .chat-side__groups-list
       .chat-side__group
