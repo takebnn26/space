@@ -1,18 +1,8 @@
 @import './reset';
+@import 'font-awesome';
 @import './mixin';
 @import './valuables';
 @import './side_bar';
+@import './main';
+@import './common';
 
-html, body {
-  max-height: 100%;
-}
-
-.wrapper {
-  min-width: 960px;
-
-  .notification {
-    @include clearfix();
-    position: fixed;
-    height: 30px;
-  }
-}
