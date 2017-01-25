@@ -1,8 +1,8 @@
-@import './reset';
 @import 'font-awesome';
-@import './mixin';
-@import './variables';
-@import './side_bar';
-@import './main';
+@import './reset';
 @import './common';
+@import './variables/mixin';
+@import './variables/feature';
+@import './contents/main';
+@import './contents/side_bar';
 
