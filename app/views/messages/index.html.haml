@@ -1,15 +1,15 @@
 .chat-main
   .chat-main__header
-    .chat-main__header-group
-      .chat-main__header-group-name
+    .chat-main__header--group
+      .chat-main__header--group-name
         武南高校
-      .chat-main__header-group-edit-btn
+      .chat-main__header--group-edit-btn
         edit
     .chat-main__header-members
       MEMBER:
       %i 隼人
   .chat-main__body
-    .chat-main__body-messages-list
+    .chat-main__body--messages-list
       .chat-main__message
         .chat-main__message-name
           隼人
@@ -60,8 +60,8 @@
         .chat-main__message-body
           えげつねえな
   .chat-main__footer
-    %form.chat-main__footer-form
-      .chat-main__footer-body
+    %form.chat-main__footer--form
+      .chat-main__footer--body
         %input{ type: 'text', placeholder: 'type a message', class: 'message' }
         %label{ class: 'chat-file' }
           %input{ type: 'file', class: 'image' }
