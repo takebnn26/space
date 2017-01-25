@@ -1,47 +1,47 @@
 .chat-main {
-  float: left;
-  width: calc( 100vw - 300px );
   height: 100vh;
+  width: calc( 100vw - 300px );
+  float: left;
 
   &__header {
-    border: $side-border;
     height: 15%;
+    border: $side-border;
 
-    &-group {
+    &--group {
       @include clearfix();
       margin: 0 40px;
 
       &-name {
-        font-size: 20px;
         color: #333;
+        font-size: 20px;
         margin: 35px 0 15px;
         float: left;
       }
 
       &-edit-btn {
-        font-size: 15px;
         color: #FFCAAD;
-        float: right;
+        font-size: 15px;
         padding: 12.5px 20px;
         margin: 28px 20px 0;
         border: $btn-border;
+        float: right;
       }
     }
 
     &-members {
+      color: $sub-font-color;
       font-size: 12px;
       margin: 0 40px;
-      color: $sub-font-color;
     }
   }
 
   &__body {
     height: calc( 100vh - 15% - 90px );
 
-    &-messages-list {
+    &--messages-list {
     height: 100%;
-    padding-left: 40px;
     padding-top: 26px;
+    padding-left: 40px;
     overflow-y: scroll;
 
       .chat-main__message {
@@ -49,16 +49,16 @@
         padding: 20px 0;
 
         &-name {
+          color: $massage-color;
           font-size: 16px;
           font-weight: bold;
-          color: $massage-color;
           float: left;
         }
 
         &-time {
-          padding: 0 10px 10px;
           color: $sub-font-color;
           font-size: 12px;
+          padding: 0 10px 10px;
           float: left;
         }
 
@@ -75,12 +75,12 @@
     width: 100%;
     background-color: #B8C3C7;
 
-    &-form {
+    &--form {
       margin: 0 40px;
       position: relative;
     }
 
-    &-body {
+    &--body {
       position: relative;
 
       .message {
@@ -92,11 +92,12 @@
       }
 
       .chat-file {
-        width: 40px;
         height: 50px;
-        top: 0; right: 0;
+        width: 40px;
         margin: 32px 130px 20px 0;
         position: absolute;
+        top: 0; right: 0;
+
         .image {
           position: absolute;
           top: 15px; left: 15px;
@@ -106,15 +107,15 @@
     }
 
     .submit {
-      position: absolute;
-      top: 0; right: 0;
+      color: $white;
       width: 100px;
       height: 50px;
       text-align: center;
-      color: $white;
       background-color: #FFCAAD;
-      border: none;
       margin: 20px 0;
+      position: absolute;
+      top: 0; right: 0;
+      border: none;
     }
   }
 }
