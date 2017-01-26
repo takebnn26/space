@@ -8,7 +8,6 @@
     border: $side-border;
 
     &--group {
-      @include clearfix();
       margin: 0 40px;
 
       &-name {
@@ -45,7 +44,6 @@
     overflow-y: scroll;
 
       .chat-main__message {
-        @include clearfix();
         padding: 20px 0;
 
         &-name {
@@ -75,12 +73,12 @@
     width: 100%;
     background-color: #B8C3C7;
 
-    &--form {
+    &-form {
       margin: 0 40px;
       position: relative;
     }
 
-    &--body {
+    &-body {
       position: relative;
 
       .message {
