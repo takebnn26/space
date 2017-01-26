@@ -49,6 +49,22 @@ has_many :messages
 - association
 
 belongs_to :group  
+belongs_to :user  
+
+***
+
+### GroupsUsers Table
+
+- columns and data type
+
+| columns | data type | constraint |
+|:-------:|:---------:|:----------:|
+| group_id | integer |
+| user_id | integer |
+
+- association
+
+belongs_to :group  
 belongs_to :user
 
 
