@@ -7,7 +7,6 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     .notificatoin
-    - if user_signed_in?
-      = render 'layouts/side_bar'
+    = render 'layouts/side_bar'
     = yield
 
