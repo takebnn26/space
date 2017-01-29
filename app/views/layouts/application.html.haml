@@ -7,6 +7,7 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     .notification
+      = render 'layouts/flash'
     = render 'layouts/side_bar'
     = yield
 
