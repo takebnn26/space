@@ -1,3 +1,17 @@
+.notification{
+  color: $white;
+  font-weight: bold;
+  text-align: center;
+
+  .notice {
+    background-color: #4CBDA1;
+  }
+
+  .alert {
+    background-color: #F16180;
+  }
+}
+
 .account-page {
   .account-page__inner {
     width: 980px;
