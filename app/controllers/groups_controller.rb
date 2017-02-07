@@ -12,7 +12,7 @@ class GroupsController < ApplicationController
     if @group.save
       redirect_to root_path, notice: 'group作成に成功しました'
     else
-      flash.alert = 'group作成に失敗しました'
+      flash.now[:alert] = 'group作成に失敗しました'
       render :new
     end
   end
