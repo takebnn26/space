@@ -1,4 +1,4 @@
 class Group < ApplicationRecord
-  def index
-  end
+  has_many :users, through: :groups_users
+  has_many :groups_users, dependent: :destroy
 end
