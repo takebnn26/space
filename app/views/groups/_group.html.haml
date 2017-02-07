@@ -1,5 +1,6 @@
-.chat-side__group
-  .chat-side__group-name
-    = group.name
-  .chat-side__group-message
-    サッカー
+= link_to group_messages_path(group) do
+  .chat-side__group
+    .chat-side__group-name
+      = group.name
+    .chat-side__group-message
+      サッカー
