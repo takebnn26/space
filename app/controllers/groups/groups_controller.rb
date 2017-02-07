@@ -1,4 +1,4 @@
-class GroupsController < ApplicationController
+class Groups::GroupsController < ApplicationController
 
   before_action :set_group, only: [:edit, :update]
 
@@ -28,7 +28,7 @@ class GroupsController < ApplicationController
       redirect_to group_messages_path(@group), notice: 'group更新に成功しました'
     else
       flash.now[:alert] = 'group更新に失敗しました'
-      render :edit
+      redirect_to edit_group_path(@group), alert: 'group更新に失敗しました'
     end
   end
 
