@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :groups, only: [:new, :create, :edit, :update] do
     scope module: 'groups' do
-      resources :messages, only: [:index]
+      resources :messages, only: [:index, :create]
     end
   end
 end

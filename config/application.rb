@@ -8,9 +8,8 @@ Bundler.require(*Rails.groups)
 
 module Space
   class Application < Rails::Application
-    config.i18n.default_locale = :ja
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration should go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded.
+    config.i18n.default_locale = :en
+    config.time_zone = 'Tokyo'
+    config.active_record.default_timezone = :local
   end
 end
