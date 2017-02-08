@@ -1,6 +1,6 @@
 .chat-group-form
   %h1
-    = select_form_title
+    = group_form_title
   = form_for @group, html: { class: 'new_chat_group', id: 'new_chat_gorup' } do |f|
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
@@ -13,8 +13,8 @@
       .chat-group-form__field--right
         .chat-group-form__search.clearfix
           / %input#user-search-field.chat-group-form__input{ placeholder: "追加したいユーザー名を入力してください", type: "text"}/
-          - if @users.present?
-            = f.collection_check_boxes :user_ids, @users, :id, :name, class: 'chat-group-form__input', id: 'user-search-field'
+          - if @not_members.present?
+            = f.collection_check_boxes :user_ids, @not_members, :id, :name, class: 'chat-group-form__input', id: 'user-search-field'
           - else
             %p 他に追加できるユーザーはいません
         #user-search-result

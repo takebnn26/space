@@ -22,7 +22,7 @@ class GroupsController < ApplicationController
   end
 
   def edit
-    @members, @users =  @users.partition { |u| @group.users.include?(u) }
+    @members, @not_members =  @not_members.partition { |u| @group.users.include?(u) }
   end
 
   def update
@@ -44,6 +44,6 @@ class GroupsController < ApplicationController
   end
 
   def set_users
-    @users = User.where.not(id: current_user)
+    @not_members = User.where.not(id: current_user)
   end
 end
