@@ -1,6 +1,7 @@
 class GroupsController < ApplicationController
 
   before_action :set_group, only: [:edit, :update]
+  before_action :set_users, only: [:new, :create, :edit]
 
   def index
     @groups = current_user.groups
@@ -8,7 +9,6 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
-    @users = User.where.not(id: current_user)
   end
 
   def create
@@ -22,13 +22,13 @@ class GroupsController < ApplicationController
   end
 
   def edit
+    @members, @not_members =  @not_members.partition { |u| @group.users.include?(u) }
   end
 
   def update
     if @group.update(group_params)
       redirect_to group_messages_path(@group), notice: 'group更新に成功しました'
     else
-      flash.now[:alert] = 'group更新に失敗しました'
       redirect_to edit_group_path(@group), alert: 'group更新に失敗しました'
     end
   end
@@ -41,5 +41,9 @@ class GroupsController < ApplicationController
 
   def set_group
     @group = Group.find(params[:id])
+  end
+
+  def set_users
+    @not_members = User.where.not(id: current_user)
   end
 end
