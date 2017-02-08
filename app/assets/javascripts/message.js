@@ -12,23 +12,21 @@ $(function(){
 
   $('#message-form').on('submit', function(e) {
     e.preventDefault();
-    var textField   = $('#message_body')
-    var inputedText = textField.val();
+    var $messageBodyField   = $('#message_body');
+    var messageBody = $messageBodyField.val();
 
     $.ajax ({
       url: './messages',
       type: 'post',
-      data: { message: { body: inputedText }},
+      data: { message: { body: messageBody }},
       dataType: 'json'
     })
-
     .done( function(data) {
       insertMessage(data);
-      textField.val('');
+      $messageBodyField.val('');
       $('#message-submit').prop('disabled', false);
     })
-
-    .fail( function(data) {
+    .fail( function() {
       alert('メッセージ送信に失敗しました');
     });
   });
