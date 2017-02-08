@@ -5,4 +5,8 @@ class Group < ApplicationRecord
   has_many :messages,    dependent: :destroy
 
   validates :name, presence: true
+
+  def latest_message
+    messages.last.try(:body) || 'まだメッセージがありません'
+  end
 end
