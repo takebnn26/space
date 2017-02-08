@@ -4,6 +4,6 @@ class Message < ApplicationRecord
   belongs_to :user
 
   def published_on
-    created_at.strftime('%Y/%m/%d %H:%M:%S')
+    created_at.to_s(:default)
   end
 end
