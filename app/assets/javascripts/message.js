@@ -10,10 +10,17 @@ $(function(){
     $('.chat-main__body--messages-list').append(html);
   };
 
+  function insertNoticeMessage(flash) {
+    var html = `<div class='notice'>${ flash }</div>`
+    $('.notification').append(html);
+  };
+
   $('#message-form').on('submit', function(e) {
     e.preventDefault();
-    var $messageBodyField   = $('#message_body');
-    var messageBody = $messageBodyField.val();
+    $('.notification').empty();
+    var $messageBodyField = $('#message_body');
+    var $messageSubmitBtn = $('#message-submit');
+    var messageBody       = $messageBodyField.val();
 
     $.ajax ({
       url: './messages',
@@ -23,11 +30,13 @@ $(function(){
     })
     .done( function(data) {
       insertMessage(data);
+      insertNoticeMessage(data.notice);
       $messageBodyField.val('');
-      $('#message-submit').prop('disabled', false);
+      $messageSubmitBtn.prop('disabled', false);
     })
     .fail( function() {
-      alert('メッセージ送信に失敗しました');
+      $messageSubmitBtn.prop('disabled', false);
+      alert('メッセージ送信失敗');
     });
   });
 });
