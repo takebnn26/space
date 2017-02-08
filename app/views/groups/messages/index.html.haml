@@ -14,10 +14,10 @@
     .chat-main__body--messages-list
       = render @messages
   .chat-main__footer
-    = form_for [@group , @message], html: { class: 'chat-main__footer-form' } do |f|
+    = form_for [@group , @message], html: { class: 'chat-main__footer-form', id: 'message-form'} do |f|
       .chat-main__footer-body
         = f.text_field :body, placeholder: 'type a message', class: 'message'
         = f.label '', class: 'chat-file' do
           = f.file_field :image, class: 'image'
           %i.fa.fa-image
-      = f.submit 'Send', class: 'submit'
+      = f.submit 'Send', class: 'submit', id: 'message-submit'
