@@ -11,7 +11,10 @@ class Groups::MessagesController < ApplicationController
   def create
     @message = current_user.messages.new(message_params)
     if @message.save
-      redirect_to group_messages_path(@group), notice: 'メッセージ送信成功'
+      respond_to do |format|
+        format.html { redirect_to group_messages_path(@group) }
+        format.json
+      end
     else
       redirect_to group_messages_path(@group), alert: 'メッセージ送信失敗'
     end
