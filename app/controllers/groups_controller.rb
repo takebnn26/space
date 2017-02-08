@@ -22,8 +22,7 @@ class GroupsController < ApplicationController
   end
 
   def edit
-    @members = @users.select{ |user| @group.users.include?(user) }
-    @users   = @users.reject{ |user| @group.users.include?(user) }
+    @members, @users =  @users.partition { |u| @group.users.include?(u) }
   end
 
   def update
