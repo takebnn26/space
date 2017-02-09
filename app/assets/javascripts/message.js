@@ -1,6 +1,4 @@
 $(function(){
-  $('.notification').empty();
-
   function insertMessage(message) {
     var html = `<div class='chat-main__message.cleafix'>
                   <div class='chat-main__message-name'>${ message.name }</div>
@@ -16,23 +14,28 @@ $(function(){
     $('.notification').append(html);
   };
 
+  function fadeNoticeMessage() {
+    setTimeout(function() {
+      $('.notification').children().fadeOut('slow');
+    }, 3000);
+  };
+
   $('#message-form').on('submit', function(e) {
     e.preventDefault();
-    $('.notification').empty();
-    var $messageForm      = $(this);
-    var $messageBodyField = $('#message_body');
-    var messageBody       = $messageBodyField.val();
+    var messageBody = $('#message_body').val();
 
     $.ajax ({
       url: './messages',
       type: 'post',
       data: { message: { body: messageBody }},
-      dataType: 'json'
+      dataType: 'json',
+      context: $(this)
     })
     .done( function(data) {
       insertMessage(data);
       insertNoticeMessage(data.notice);
-      $messageForm[0].reset();
+      fadeNoticeMessage();
+      this[0].reset();
     })
     .fail( function() {
       alert('メッセージ送信失敗');

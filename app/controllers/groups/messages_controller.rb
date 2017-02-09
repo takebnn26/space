@@ -3,8 +3,6 @@ class Groups::MessagesController < ApplicationController
   before_action :set_group, only: [:index, :create]
 
   def index
-    @groups   = current_user.groups
-    @messages = current_user.messages
     @message  = Message.new
   end
 
@@ -17,7 +15,8 @@ class Groups::MessagesController < ApplicationController
         format.json
       end
     else
-      redirect_to group_messages_path(@group), alert: 'メッセージ送信失敗'
+      flash.now[:alert] = 'メッセージ送信失敗'
+      render :index
     end
   end
 
@@ -29,5 +28,7 @@ class Groups::MessagesController < ApplicationController
 
   def set_group
     @group = current_user.groups.find(params[:group_id])
+    @groups   = current_user.groups
+    @messages = current_user.messages
   end
 end
