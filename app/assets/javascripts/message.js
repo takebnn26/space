@@ -32,12 +32,12 @@ $(function(){
     .done( function(data) {
       insertMessage(data);
       insertNoticeMessage(data.notice);
-      $messageBodyField.val('');
-      $messageSubmitBtn.prop('disabled', false);
+      $('#message-form')[0].reset();
     })
     .fail( function() {
       $messageSubmitBtn.prop('disabled', false);
       alert('メッセージ送信失敗');
     });
+    return false;
   });
 });
