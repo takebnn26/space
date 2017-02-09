@@ -1,4 +1,5 @@
 $(function(){
+  $('.notification').empty();
 
   function insertMessage(message) {
     var html = `<div class='chat-main__message.cleafix'>
