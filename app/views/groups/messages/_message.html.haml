@@ -2,6 +2,6 @@
   .chat-main__message-name
     = message.user.name
   .chat-main__message-time
-    = message.published_on
+    = message.created_at.to_s(:default)
   .chat-main__message-body
     = message.body
