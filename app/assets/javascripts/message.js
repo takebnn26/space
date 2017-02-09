@@ -19,8 +19,8 @@ $(function(){
   $('#message-form').on('submit', function(e) {
     e.preventDefault();
     $('.notification').empty();
+    var $messageForm      = $(this);
     var $messageBodyField = $('#message_body');
-    var $messageSubmitBtn = $('#message-submit');
     var messageBody       = $messageBodyField.val();
 
     $.ajax ({
@@ -32,10 +32,9 @@ $(function(){
     .done( function(data) {
       insertMessage(data);
       insertNoticeMessage(data.notice);
-      $('#message-form')[0].reset();
+      $messageForm[0].reset();
     })
     .fail( function() {
-      $messageSubmitBtn.prop('disabled', false);
       alert('メッセージ送信失敗');
     });
     return false;
