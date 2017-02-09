@@ -22,12 +22,11 @@ $(function(){
 
   $('#message-form').on('submit', function(e) {
     e.preventDefault();
-    var messageBody = $('#message_body').val();
 
     $.ajax ({
       url: './messages',
       type: 'post',
-      data: { message: { body: messageBody }},
+      data: { message: { body: $('#message_body').val() }},
       dataType: 'json',
       context: $(this)
     })
