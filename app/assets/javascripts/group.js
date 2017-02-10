@@ -25,7 +25,6 @@ $( function() {
       })
 
       .done(function (data) {
-        console.log(data);
         $.each (data.users, function (i, user) {
           appendUser(user);
         });
