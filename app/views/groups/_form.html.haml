@@ -12,12 +12,12 @@
         = f.label :チャットメンバーを追加, class: 'chat-group-form__label'
       .chat-group-form__field--right
         .chat-group-form__search.clearfix
-          / %input#user-search-field.chat-group-form__input{ placeholder: "追加したいユーザー名を入力してください", type: "text"}/
-          - if @not_members.present?
-            = f.collection_check_boxes :user_ids, @not_members, :id, :name, class: 'chat-group-form__input', id: 'user-search-field'
-          - else
-            %p 他に追加できるユーザーはいません
-        #user-search-result
+          = f.text_field :user_ids, placeholder: '追加したいユーザー名を入力してください', id: 'user-search-field', class: 'chat-group-form__input'
+          / - if @not_members.present?
+          /   = f.collection_check_boxes :user_ids, @not_members, :id, :name, class: 'chat-group-form__input', id: 'user-search-field'
+          / - else
+          /   %p 他に追加できるユーザーはいません
+        %ul#user-search-result
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
         = f.label :チャットメンバー, class: 'chat-group-form__label'
