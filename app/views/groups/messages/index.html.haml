@@ -11,7 +11,7 @@
       %i
         = @group.users.pluck(:name).join(' ')
   .chat-main__body
-    .chat-main__body--messages-list
+    %ul.chat-main__body--messages-list
       = render @messages
   .chat-main__footer
     = form_for [@group , @message], html: { class: 'chat-main__footer-form', id: 'message-form'} do |f|

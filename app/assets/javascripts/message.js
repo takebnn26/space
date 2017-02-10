@@ -1,10 +1,10 @@
 $(function(){
   function insertMessage(message) {
-    var html = `<div class='chat-main__message.cleafix'>
+    var html = `<li class='chat-main__message.cleafix'>
                   <div class='chat-main__message-name'>${ message.name }</div>
                     <div class='chat-main__message-time'>${ message.time }</div>
                   <div class='chat-main__message-body'>${ message.body }</div>
-                </div>`
+                </li>`
 
     $('.chat-main__body--messages-list').append(html);
   };
@@ -20,6 +20,13 @@ $(function(){
     }, 3000);
   };
 
+  function scrollToBottom() {
+    var pos = $('.chat-main__body--messages-list').height();
+    $('.chat-main__body').animate({
+      scrollTop: pos
+    }, 'slow', 'swing');
+  };
+
   $('#message-form').on('submit', function(e) {
     e.preventDefault();
 
@@ -32,6 +39,7 @@ $(function(){
     })
     .done( function(data) {
       insertMessage(data);
+      scrollToBottom();
       insertNoticeMessage(data.notice);
       fadeNoticeMessage();
       this[0].reset();
