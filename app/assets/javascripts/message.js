@@ -1,6 +1,6 @@
 $(function(){
   function insertMessage(message) {
-    var html = `<li class='chat-main__message.cleafix'>
+    var html = `<li class='chat-main__message.clearfix'>
                   <div class='chat-main__message-name'>${ message.name }</div>
                     <div class='chat-main__message-time'>${ message.time }</div>
                   <div class='chat-main__message-body'>${ message.body }</div>
@@ -12,6 +12,7 @@ $(function(){
   function insertNoticeMessage(flash) {
     var html = `<div class='notice'>${ flash }</div>`
     $('.notification').append(html);
+    fadeNoticeMessage();
   };
 
   function fadeNoticeMessage() {
@@ -41,7 +42,6 @@ $(function(){
       insertMessage(data);
       scrollToBottom();
       insertNoticeMessage(data.notice);
-      fadeNoticeMessage();
       this[0].reset();
     })
     .fail( function() {
