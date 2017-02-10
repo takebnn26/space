@@ -1,6 +1,6 @@
 $(function(){
   function insertMessage(message) {
-    var html = `<li class='chat-main__message.clearfix'>
+    var html = `<li class='chat-main__message clearfix'>
                   <div class='chat-main__message-name'>${ message.name }</div>
                     <div class='chat-main__message-time'>${ message.time }</div>
                   <div class='chat-main__message-body'>${ message.body }</div>
