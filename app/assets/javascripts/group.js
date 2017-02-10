@@ -12,10 +12,7 @@ $( function() {
     $('#user-search-result').append(html);
   };
 
-  $('#user-search-result').on('click', '.chat-group-user__btn--add', function(){
-    var name = $(this).data('name');
-    var id   = $(this).data('id');
-
+  function insertMember(name, id) {
     var html = `<li class='chat-group-user clearfix'>
                   <div class='chat-group-user__name'>${ name }</div>
                   <div class='chat-group-user__btn
@@ -24,6 +21,12 @@ $( function() {
                 </li>`;
 
     $('#chat-group-users').append(html);
+  };
+
+  $('#user-search-result').on('click', '.chat-group-user__btn--add', function(){
+    var name = $(this).data('name');
+    var id   = $(this).data('id');
+    insertMember(name, id);
     $(this).parent().remove();
   });
 
