@@ -28,15 +28,22 @@ $(function(){
     }, 'slow', 'swing');
   };
 
+  $('#message_image').on('change', function() {
+    $('#message-form').submit();
+  });
+
   $('#message-form').on('submit', function(e) {
     e.preventDefault();
+    formdata = new FormData($(this).get(0));
 
     $.ajax ({
       url: './messages',
       type: 'post',
-      data: { message: { body: $('#message_body').val() }},
+      data: formdata,
       dataType: 'json',
-      context: $(this)
+      context: $(this),
+      processData: false,
+      contentType: false
     })
     .done( function(data) {
       insertMessage(data);
