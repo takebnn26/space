@@ -12,6 +12,8 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'font-awesome-rails'
 gem 'devise'
+gem 'carrierwave', '~> 1.0'
+gem 'mini_magick'
 
 #haml関連
 gem 'erb2haml'
