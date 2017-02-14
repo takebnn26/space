@@ -34,6 +34,21 @@ $(function(){
     }, 'slow', 'swing');
   };
 
+
+  function reloadMessages () {
+    $.ajax({
+      url: './messages',
+      type: 'get'
+    })
+    .done( function(data){
+      $.each( data.messages, function(i, message){
+        insertMessage(message);
+      });
+    });
+  };
+
+  setInterval(reloadMessages, 10000);
+
   $('#message_image').on('change', function() {
     $('#message-form').submit();
   });
