@@ -1,6 +1,7 @@
 $(function(){
+  var last_id = 0;
+
   function insertMessage(message) {
-    console.log('saaa');
 
     var insertImage = '';
     if (message.image) {
@@ -43,12 +44,12 @@ $(function(){
       dataType: 'json'
     })
     .done(function(data){
-      console.log(data);
       $.each(data.messages, function(i, message){
-        if (data.last_id < message.id){
+        if (last_id < message.id){
           insertMessage(message);
         };
       });
+      last_id = data.last_id;
     });
   };
 
