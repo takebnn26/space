@@ -1,5 +1,6 @@
 $(function(){
   function insertMessage(message) {
+    console.log('saaa');
 
     var insertImage = '';
     if (message.image) {
@@ -42,9 +43,11 @@ $(function(){
       dataType: 'json'
     })
     .done(function(data){
-      $('.chat-main__body--messages-list').empty();
+      console.log(data);
       $.each(data.messages, function(i, message){
-        insertMessage(message);
+        if (data.last_id < message.id){
+          insertMessage(message);
+        };
       });
     });
   };
