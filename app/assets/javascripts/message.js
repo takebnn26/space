@@ -38,16 +38,18 @@ $(function(){
   function reloadMessages () {
     $.ajax({
       url: './messages',
-      type: 'get'
+      type: 'get',
+      dataType: 'json'
     })
-    .done( function(data){
-      $.each( data.messages, function(i, message){
+    .done(function(data){
+      $('.chat-main__body--messages-list').empty();
+      $.each(data.messages, function(i, message){
         insertMessage(message);
       });
     });
   };
 
-  setInterval(reloadMessages, 10000);
+  setInterval(reloadMessages, 3000);
 
   $('#message_image').on('change', function() {
     $('#message-form').submit();
