@@ -1,4 +1,6 @@
 $(function(){
+  var last_id = 0;
+
   function insertMessage(message) {
 
     var insertImage = '';
@@ -33,6 +35,25 @@ $(function(){
       scrollTop: pos
     }, 'slow', 'swing');
   };
+
+
+  function reloadMessages () {
+    $.ajax({
+      url: './messages',
+      type: 'get',
+      dataType: 'json'
+    })
+    .done(function(data){
+      $.each(data.messages, function(i, message){
+        if (last_id < message.id){
+          insertMessage(message);
+        };
+      });
+      last_id = data.last_id;
+    });
+  };
+
+  setInterval(reloadMessages, 3000);
 
   $('#message_image').on('change', function() {
     $('#message-form').submit();
