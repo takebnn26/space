@@ -1,3 +1,5 @@
+
+
 # Chat Space
 ## DB Settings
 
@@ -45,6 +47,22 @@ has_many :messages
 | image | string ||
 | user_id | integer | null: false, foreign_key: true |
 | grouop_id | integer | null: false, foreign_key: true |
+
+- association
+
+belongs_to :group  
+belongs_to :user  
+
+***
+
+### GroupsUsers Table
+
+- columns and data type
+
+| columns | data type | constraint |
+|:-------:|:---------:|:----------:|
+| group_id | integer |
+| user_id | integer |
 
 - association
 
